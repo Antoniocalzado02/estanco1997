@@ -1,10 +1,4 @@
-
-  <div class="navbar navbar-expand navbar-dark " style="background-color:rgb(82, 80, 80) ; color: black;">
-      <div class="container" >
-        <h3 class="text-center">Inicio <h3 class="text-right">Login<h3 class="text-right">Carrito</h3></h3></h3>
-      </div>
-  </div>
-  <div class="navbar navbar-expand navbar-dark " style="background-color:rgb(82, 80, 80) ; color: black;">
+<div class="navbar navbar-expand navbar-dark " style="background-color:rgb(82, 80, 80) ; color: black;">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <a href="index.html" class="navbar-brand"><img src="../../../assets/logo.png" width="100px"></a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -28,6 +22,7 @@
         <form action="#" method="post" class="form-inline my-2 mylg-0">
             <input type="search" name="buscar" id="buscar" class="form-control mr-sm-2" placeholder="Buscar articulos" aria-label="Buscar">
         </form>
+        <a [routerLink]="['/login/login']" routerLinkActive="router-link-active"  class="navbar-brand"><button type="submit"><img src="../../../assets/login.png" width="30px"></button></a>
     </div>
   </div>
     
