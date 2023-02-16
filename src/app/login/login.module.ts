@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LogiInComponent } from './logi-in/logi-in.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginRouteModule } from './login-routes.module';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -12,7 +14,8 @@ import { LoginRouteModule } from './login-routes.module';
     RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],exports:[
     LoginRouteModule
   ]
