@@ -9,6 +9,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { PagesModule } from './pages/pages.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { HomeModule } from './home/home.module';
     FormsModule,
     PagesModule,
     LoginModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule
+    
     
   ],
   providers: [],
