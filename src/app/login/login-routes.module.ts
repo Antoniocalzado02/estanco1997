@@ -11,8 +11,7 @@ const routes: Routes = [
     },
     {
         path: 'register',
-        component: RegisterComponent,
-        pathMatch: 'full'
+        component: RegisterComponent
     }
 ]
 

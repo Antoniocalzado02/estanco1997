@@ -4,6 +4,8 @@ import { LogiInComponent } from './logi-in/logi-in.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginRouteModule } from './login-routes.module';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],exports:[
     LoginRouteModule
   ]
