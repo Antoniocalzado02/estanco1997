@@ -2,6 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: beige;
 }
 
 .parrafo{
@@ -14,12 +15,14 @@
     grid-row: 2/3;
     grid-column: 1/2;
   text-align: center;
-  background-color: aquamarine;
+  background-color: rgb(82, 80, 80); width: min-content;
   border-radius: 5px;
+  align-items: center;
+  margin-left: 245px;
 }
 
 .texto-2{
-    grid-row: 2/3;
+    grid-row: 3/4;
     grid-column: 2/3;
   text-align: center;
 }
@@ -28,8 +31,11 @@
     grid-row: 2/3;
     grid-column: 3/4;
   text-align: center;
-  background-color: aquamarine;
+  background-color: rgb(82, 80, 80); width: min-content;
   border-radius: 5px;
+  align-items: center;
+  margin-left: 245px;
+  padding: 15px;
 }
 
 .texto-1{
@@ -39,11 +45,14 @@
 }
 
 .image-2{
-    grid-row: 3/4;
+    grid-row: 2/3;
     grid-column: 2/3;
   text-align: center;
-  background-color: aquamarine;
+  background-color: rgb(82, 80, 80); width: min-content;
   border-radius: 5px;
+  align-items: center;
+  margin-left: 245px;
+  padding: 1cm;
 }
 
 .texto-3{
