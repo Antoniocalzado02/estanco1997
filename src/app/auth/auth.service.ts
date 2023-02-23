@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, Observable, switchMap, catchError } from 'rxjs';
 import { AuthResponse } from '../interfaces/token.interface';
+import { Token } from '@angular/compiler';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,8 @@ import { AuthResponse } from '../interfaces/token.interface';
 
     url:string = 'http://localhost:9061'
     httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        Authorization: 'Bearer' + localStorage.getItem('token')
     };
 
     constructor(private http: HttpClient){}
@@ -58,5 +60,15 @@ import { AuthResponse } from '../interfaces/token.interface';
         return localStorage.getItem('authenticated')==='true'
     }
 
+
+    getCategories():Observable<boolean>{
+        return this.http.get<any>(this.url+"/categories", this.httpOptions)
+        .pipe( switchMap(resp => {
+                return of(true);
+            }),catchError(error => {
+                return of(false);
+            })
+        )
+    }
     
 }
