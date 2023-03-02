@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   save(){
-    console.log("enviado")
+    console.log("Cambios guardados")
   }
 
   notValid(campo: string): boolean{

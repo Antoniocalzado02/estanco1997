@@ -11,7 +11,8 @@ import { pagesRoutingModule } from './pages-routing.module';
   declarations: [
     CategoryComponent,
     ArticleComponent,
-    CartComponent
+    CartComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule

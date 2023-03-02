@@ -1,4 +1,4 @@
-export interface Products {
+export interface Category {
     content:          Content[];
     pageable:         Pageable;
     last:             boolean;

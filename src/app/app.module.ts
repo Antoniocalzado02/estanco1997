@@ -11,6 +11,8 @@ import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import {DataTablesModule} from 'angular-datatables';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,14 @@ import { RouterModule } from '@angular/router';
     LoginModule,
     HomeModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    DataTablesModule,
+    CommonModule
     
     
+  ],
+  exports:[
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
