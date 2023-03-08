@@ -6,23 +6,24 @@
       </button>
         <ul class="navbar-nav mr-auto">
             <h4><a href="#" class="nav-item active nav-link">Inicio</a></h4>
+            <div *ngIf="isLoggedIn()">
             <h4><a [routerLink]="['/pages/category']" routerLinkActive="router-link-active" class="nav-item active nav-link">Catalogo</a></h4>
-            <h4><a href="#" class="nav item active nav-link">Articulos</a></h4>
-
-            <li class="nav-item dropdown">
-                <h4><a href="#" class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sobre nosotros</a></h4>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="#" class="dropdown-item">Contacto</a>
-                    <a href="#" class="dropdown-item">Lozalización</a>
-                    <a href="#" class="dropdown-item">Sugerencias</a>
-                </div>
-            </li>
+            </div>
+            <h4><a href="#" [routerLink]="['/pages/article']" routerLinkActive="router-link-active" class="nav item active nav-link">Tabacos</a></h4>
+            <div *ngIf="isLoggedIn()">
+                <a href="#" [routerLink]="['/pages/article']" routerLinkActive="router-link-active" class="nav item active nav-link"><h4>Editar foto</h4></a>      
+            </div>
+            
         </ul>
 
-        <form action="#" method="post" class="form-inline my-2 mylg-0">
-            <input type="search" name="buscar" id="buscar" class="form-control mr-sm-2" placeholder="Buscar articulos" aria-label="Buscar">
-        </form>
-        <a [routerLink]="['/login/login']" routerLinkActive="router-link-active"  class="navbar-brand"><button type="submit"><img class="img" src="../../../assets/login.png" width="30px"></button></a>
+        <div *ngIf="!isLoggedIn()">
+            <a [routerLink]="['/login/login']" routerLinkActive="router-link-active"  class="navbar-brand"><button type="submit"><img class="img" src="../../../assets/login.png" width="30px"></button></a>
+        </div>
+        <div *ngIf="isLoggedIn()">
+            <button type="button" class="btn btn-outline-danger" style="margin-left: 10px;" (click)="logout()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+              </svg> Logout</button>
+        </div>
     </div>
   </div>
     

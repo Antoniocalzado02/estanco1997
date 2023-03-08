@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, NgForm } from '@angular/forms';
+
 import { PagesModule } from './pages/pages.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import {DataTablesModule} from 'angular-datatables';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AuthInterceptorService } from './auth-interceptor.service';
+import { AuthGuard } from './auth-guard.guard';
+import { RolGuard } from './rol-guard.guard';
 
 @NgModule({
   declarations: [
@@ -28,16 +30,17 @@ import { CommonModule } from '@angular/common';
     LoginModule,
     HomeModule,
     HttpClientModule,
-    RouterModule,
-    DataTablesModule,
     CommonModule
     
     
   ],
   exports:[
-    DataTablesModule
   ],
-  providers: [],
+  providers: [AuthGuard, RolGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

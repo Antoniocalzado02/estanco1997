@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { of, Observable, switchMap, catchError } from 'rxjs';
+import { of, Observable, switchMap, catchError, BehaviorSubject } from 'rxjs';
 import { AuthResponse } from '../interfaces/token.interface';
 import { Token } from '@angular/compiler';
+import jwt_decode from "jwt-decode";
+import { DecodeToken } from '../interfaces/decode-token.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +18,10 @@ import { Token } from '@angular/compiler';
         Authorization: 'Bearer' + localStorage.getItem('token')
     };
 
+    private loged = new BehaviorSubject<boolean> (false);
+
+    private admin = new BehaviorSubject<boolean> (false);
+
     constructor(private http: HttpClient){}
 
     register(username: string, pass:string, name:string, email:string):Observable<boolean>{
@@ -26,6 +32,14 @@ import { Token } from '@angular/compiler';
                 return of(false);
             })
         )
+    }
+
+    get isAdmin() {
+        return this.admin.asObservable();
+      }
+
+    get isLoged(){
+        return this.loged.asObservable();
     }
 
     verify(code: string, username: string):Observable<boolean>{
@@ -70,6 +84,32 @@ import { Token } from '@angular/compiler';
             })
         )
     }
+
+    isLoggedIn(){
+        if(localStorage.getItem('token')){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    isAdminGuard(){
+        let token=localStorage.getItem('token')
+        if(token){
+            let rol=this.decodeJwt(token).role
+            if(rol=='ADMIN'){
+                return true
+            }
+        }
+            return false
+        
+    }
+
+    decodeJwt(jwt: string): DecodeToken{
+        return jwt_decode(jwt)
+    }
+
 
     
     

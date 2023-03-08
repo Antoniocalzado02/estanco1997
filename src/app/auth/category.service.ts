@@ -16,12 +16,12 @@ export class categoryService{
     httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    getCategorias():Observable<Content[]>{
-      return this.http.get<Content[]>(this.url)
+    getCategorias(numero:number):Observable<any>{
+      return this.http.get<any>(this.url+"?pageSize="+numero)
     }
 
-    addCategoria(nombre:string, descripcion:string):Observable<boolean>{
-      return this.http.post<any>(this.url, {"nombre":nombre, "descripcion":descripcion}, this.httpOptions)
+    addCategoria(name:string, description:string):Observable<boolean>{
+      return this.http.post<any>(this.url, {"name":name, "description":description}, this.httpOptions)
       .pipe( switchMap(resp => {
         return of(true);
       }),catchError(error => {

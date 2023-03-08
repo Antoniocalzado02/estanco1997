@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { authService } from '../../auth/auth.service';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logi-in',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class LogiInComponent implements OnInit {
 
-  constructor(private authService: authService) { }
+  constructor(private authService: authService, private router:Router) { }
 
   @ViewChild('myForm') myForm!:NgForm;
 
@@ -43,7 +44,7 @@ export class LogiInComponent implements OnInit {
             title: 'Login correcto',
             timer: 1500
           })
-          
+          this.router.navigate(['/home'])
         }
         else {
           Swal.fire({

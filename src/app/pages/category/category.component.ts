@@ -21,7 +21,6 @@ export class CategoryComponent implements OnInit {
 
   lista:Content[]=[]
 
- 
 
   dtOptions: DataTables.Settings = {};
   posts: any;
@@ -38,14 +37,14 @@ export class CategoryComponent implements OnInit {
       processing: true
     };
 
-    this.categoryService.getCategorias()
+    this.categoryService.getCategorias(999)
     .subscribe({
       next: (resp)=>{
-        this.lista=resp
+        this.lista=resp.content
         this.dtTrigger.next(this.lista)
       },
       error: (error)=>{
-
+        console.log(error)
       }
     })
 
