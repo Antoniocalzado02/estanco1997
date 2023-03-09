@@ -80,6 +80,13 @@ if(this.idCategory){
     })
   }
 
+  comprar(){
+    Swal.fire(
+      'Comprado!',
+      'Tu compra se ha realizado con exito.',
+      'success'
+    )
+  }
 
   isLoggedIn(){
     if(localStorage.getItem('token')){
