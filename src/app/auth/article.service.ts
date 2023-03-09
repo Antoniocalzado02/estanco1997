@@ -10,9 +10,9 @@ import { Tabacos } from "../interfaces/tabacos.interface";
 
 export class articlesService{
 
-    url:string='http://localhost:9061/tabacos'
+    url:string='https://estanco1997api-production.up.railway.app/tabacos'
 
-    urls:string='http://localhost:9061/tabaco'
+    urls:string='https://estanco1997api-production.up.railway.app/tabaco'
 
 
     constructor(private http:HttpClient){}

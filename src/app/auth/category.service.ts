@@ -9,7 +9,7 @@ import { Category, Content } from '../interfaces/category.interface';
 
 export class categoryService{
 
-    url:string='http://localhost:9061/categories'
+    url:string='https://estanco1997api-production.up.railway.app/categories'
 
     constructor(private http:HttpClient){}
 
