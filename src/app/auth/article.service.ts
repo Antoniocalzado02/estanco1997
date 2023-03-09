@@ -27,15 +27,13 @@ export class articlesService{
 
     
 
-    addProduct(name:string, description:string, price:number, category:number, stock:number):Observable<boolean>{
+    addProduct(name:string, description:string, price:number, stock:number, idCategory:number):Observable<boolean>{
       return this.http.post<any>(this.url, {
         "name": name,
         "description":description,
         "price": price,
-        "category":{
-          "category": category
-        },
-        "stock": stock
+        "stock": stock,
+        "idCategory": idCategory
       })
       .pipe( switchMap(resp => {
         return of(true);

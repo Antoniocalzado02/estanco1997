@@ -23,8 +23,8 @@ export class AddArticuloComponent {
     name: ['', [Validators.required, Validators.minLength(3)]],
     description: [null, [Validators.required, Validators.minLength(10)]],
     price: ['', [Validators.required, Validators.min(1)]],
-    category: [null, [Validators.required, Validators.min(1),Validators.max(10)]],
     stock: ['', [Validators.required, Validators.min(1), Validators.max(10)]],
+    idCategory: ['', [Validators.required, Validators.min(1), Validators.max(10)]]
   })
 
   isValidField(field: string){
@@ -39,7 +39,7 @@ export class AddArticuloComponent {
       this.myForm.markAllAsTouched() 
     }
     else{
-      this.articleService.addProduct(this.myForm.value.name, this.myForm.value.description,this.myForm.value.price,this.myForm.value.category,this.myForm.value.stock)
+      this.articleService.addProduct(this.myForm.value.name, this.myForm.value.description,this.myForm.value.price,this.myForm.value.stock,this.myForm.value.idCategory)
       .subscribe({
         next:(resp)=>{
           if(resp){
