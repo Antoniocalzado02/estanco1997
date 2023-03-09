@@ -48,7 +48,7 @@ export class AddArticuloComponent {
               title: 'Categoria añadida correctamente',
               text: 'Nombre: '+this.myForm.value.name+', descripcion: '+this.myForm.value.description
             })
-            this.route.navigate(["/pages/category"])
+            this.route.navigate(["/pages/tabacos"])
           }
           else{
             Swal.fire({

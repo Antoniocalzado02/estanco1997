@@ -28,6 +28,8 @@ export class articlesService{
     
 
     addProduct(name:string, description:string, price:number, stock:number, idCategory:number):Observable<boolean>{
+     console.log(name, description, price, stock, idCategory);
+     
       return this.http.post<any>(this.url, {
         "name": name,
         "description":description,
