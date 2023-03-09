@@ -81,4 +81,13 @@ if(this.idCategory){
   }
 
 
+  isLoggedIn(){
+    if(localStorage.getItem('token')){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
 }

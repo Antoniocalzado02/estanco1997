@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddArticuloComponent } from './add-articulo/add-articulo.component';
 import { EditArticuloComponent } from './edit-articulo/edit-articulo.component';
+import { UpdateImageComponent } from './update-image/update-image.component';
 
 
 
@@ -23,7 +24,8 @@ import { EditArticuloComponent } from './edit-articulo/edit-articulo.component';
     CategoryComponent,
     AddCategorieComponent,
     AddArticuloComponent,
-    EditArticuloComponent
+    EditArticuloComponent,
+    UpdateImageComponent
   ],
   imports: [
     CommonModule,

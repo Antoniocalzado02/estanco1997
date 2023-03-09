@@ -57,6 +57,7 @@ import { DecodeToken } from '../interfaces/decode-token.interface';
         return this.http.post<AuthResponse>(this.url+"/signin", {name, password},this.httpOptions)
         .pipe( switchMap(token => {
                 localStorage.setItem('token', token.token);
+                localStorage.setItem('username',name)
                 return of(true);
             }),catchError(error => {
                 localStorage.removeItem('token');

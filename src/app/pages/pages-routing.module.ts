@@ -7,6 +7,7 @@ import { ArticleComponent } from './article/article.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { EditArticuloComponent } from './edit-articulo/edit-articulo.component';
+import { UpdateImageComponent } from './update-image/update-image.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,11 @@ const routes: Routes = [
     {
         path: 'editArticle/:id',
         component: EditArticuloComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'updateImage/:username',
+        component: UpdateImageComponent,
         pathMatch: 'full'
     }
 
